@@ -1,7 +1,18 @@
+/*
+* Prefixed by:
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 /* ⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙ */
 /* ⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙ */
 /* ⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙ */
 /* IMPORTANT FOR MOBILE VISUALIZATION */
+@-o-viewport{
+    zoom: 1.0;
+    width: extend-to-zoom;
+}
 @viewport{
     zoom: 1.0;
     width: extend-to-zoom;
@@ -35,17 +46,18 @@ body{
 }
 */
 #webpage{
+    display: -ms-grid;
     display: grid;
     grid-gap: 1rem;
-    grid-template-areas:
+        grid-template-areas:
     "head"
     "cont"
     "foot";
     /*☣☣☣*/
 }
-#head{grid-area: head;}
-#content{grid-area: cont;}
-#foot{grid-area: foot;}
+#head{-ms-grid-row: 1;-ms-grid-column: 1;grid-area: head;}
+#content{-ms-grid-row: 3;-ms-grid-column: 1;grid-area: cont;}
+#foot{-ms-grid-row: 5;-ms-grid-column: 1;grid-area: foot;}
 
 table, tr, td{
     border-collapse: collapse;
@@ -99,21 +111,24 @@ button::after{
 /* ⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙ */
 /* CONTENT */
 #content{
+    display: -ms-grid;
     display: grid;
     grid-gap: 0.5rem;
+    -ms-grid-columns: 1fr 0.5rem 1.5fr;
     grid-template-columns: 1fr 1.5fr;
-    grid-template-areas:
+    -ms-grid-rows: auto 0.5rem auto 0.5rem auto;
+        grid-template-areas:
     "contacto info"
     "galeria1 info"
     "galeria1 ubicacion";
     margin-left: 0.5rem;
     margin-right: 0.5rem;
 }
-#contacto{grid-area: contacto;}
-#info{grid-area: info;}
-#galeria1{grid-area: galeria1;}
+#contacto{-ms-grid-row: 1;-ms-grid-column: 1;grid-area: contacto;}
+#info{-ms-grid-row: 1;-ms-grid-row-span: 3;-ms-grid-column: 3;grid-area: info;}
+#galeria1{-ms-grid-row: 3;-ms-grid-row-span: 3;-ms-grid-column: 1;grid-area: galeria1;}
 #galeria2{grid-area: galeria2;}
-#ubicacion{grid-area: ubicacion;}
+#ubicacion{-ms-grid-row: 5;-ms-grid-column: 3;grid-area: ubicacion;}
 /*☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣*/
 /*☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣*/
 #contacto{
@@ -122,6 +137,8 @@ button::after{
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: 1rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -139,6 +156,8 @@ button::after{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -150,7 +169,8 @@ button::after{
 #wi, #pi{
     display: block;
     width: 30px;
-    filter: drop-shadow(0px 0px 10px black);
+    -webkit-filter: drop-shadow(0px 0px 10px black);
+            filter: drop-shadow(0px 0px 10px black);
 }
 .contact_button_td{
     font-family: 'Albert Sans', sans-serif;
@@ -194,6 +214,8 @@ button::after{
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: 1rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -225,12 +247,16 @@ button::after{
 /*☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣☣*/
 #galeria1{
     text-align: center;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     /*background-color: rgba(165, 149, 8, 0.8);*/
     background-color: rgba(154, 8, 165, 0.8);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: 1rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -246,9 +272,10 @@ button::after{
     padding-bottom: 0.5rem;
 }
 #gallery{
+    display: -ms-grid;
     display: grid;
     grid-gap: 0.5rem;
-    grid-template-areas:
+        grid-template-areas:
     "i1 i2"
     "i3 i4"
     "i5 i6"
@@ -261,18 +288,18 @@ button::after{
     padding-bottom: 1rem;
 
 }
-#i1{grid-area: i1;}
-#i1{grid-area: i2;}
-#i1{grid-area: i3;}
-#i1{grid-area: i4;}
-#i1{grid-area: i5;}
-#i1{grid-area: i6;}
-#i1{grid-area: i7;}
-#i1{grid-area: i8;}
-#i1{grid-area: i9;}
-#i1{grid-area: i10;}
-#i1{grid-area: i11;}
-#i1{grid-area: i12;}
+#i1{-ms-grid-row: 1;-ms-grid-column: 1;grid-area: i1;}
+#i1{-ms-grid-row: 1;-ms-grid-column: 3;grid-area: i2;}
+#i1{-ms-grid-row: 3;-ms-grid-column: 1;grid-area: i3;}
+#i1{-ms-grid-row: 3;-ms-grid-column: 3;grid-area: i4;}
+#i1{-ms-grid-row: 5;-ms-grid-column: 1;grid-area: i5;}
+#i1{-ms-grid-row: 5;-ms-grid-column: 3;grid-area: i6;}
+#i1{-ms-grid-row: 7;-ms-grid-column: 1;grid-area: i7;}
+#i1{-ms-grid-row: 7;-ms-grid-column: 3;grid-area: i8;}
+#i1{-ms-grid-row: 9;-ms-grid-column: 1;grid-area: i9;}
+#i1{-ms-grid-row: 9;-ms-grid-column: 3;grid-area: i10;}
+#i1{-ms-grid-row: 11;-ms-grid-column: 1;grid-area: i11;}
+#i1{-ms-grid-row: 11;-ms-grid-column: 3;grid-area: i12;}
 .bread_image{
     width: 100%;
     border-radius: 1rem;
@@ -285,6 +312,8 @@ button::after{
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: 1rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -301,7 +330,8 @@ button::after{
 #location{
     width: 90%;
     height: 29rem;
-    box-shadow: 0px 0px 20px 2px rgb(0, 138, 252);
+    -webkit-box-shadow: 0px 0px 20px 2px rgb(0, 138, 252);
+            box-shadow: 0px 0px 20px 2px rgb(0, 138, 252);
     border-radius: 1rem;
     padding: 0px;
     margin-bottom: 1rem;
@@ -378,19 +408,23 @@ button::after{
 /* REACTIVITY */
 @media only screen and (max-width: 1200px){
     #webpage{
+        display: -ms-grid;
         display: grid;
         grid-gap: 5rem;
-        grid-template-areas:
+            grid-template-areas:
         "head"
         "cont"
         "foot";
         /*☣☣☣*/
     }
     #content{
+        display: -ms-grid;
         display: grid;
         grid-gap: 0.5rem;
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-        grid-template-areas:
+        -ms-grid-rows: auto 0.5rem auto 0.5rem auto 0.5rem auto;
+            grid-template-areas:
         "contacto"
         "info"
         "galeria1"
@@ -399,12 +433,41 @@ button::after{
         margin-left: 0.5rem;
         margin-right: 0.5rem;
     }
+    #head{
+        -ms-grid-row: 1;
+        -ms-grid-column: 1;
+    }
+    #content{
+        -ms-grid-row: 3;
+        -ms-grid-column: 1;
+    }
+    #foot{
+        -ms-grid-row: 5;
+        -ms-grid-column: 1;
+    }
+    #contacto{
+        -ms-grid-row: 1;
+        -ms-grid-column: 1;
+    }
+    #info{
+        -ms-grid-row: 3;
+        -ms-grid-row-span: 1;
+        -ms-grid-column: 1;
+    }
+    #galeria1{
+        -ms-grid-row: 5;
+        -ms-grid-row-span: 1;
+        -ms-grid-column: 1;
+    }
+    #ubicacion{
+        -ms-grid-row: 7;
+        -ms-grid-column: 1;
+    }
 }
 /* END REACTIVITY */
 /* ⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙ */
 /* ⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙ */
 /* ⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙⚙ */
-
 
 
 
